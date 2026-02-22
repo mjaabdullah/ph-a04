@@ -1,3 +1,5 @@
+const jobListParent = document.getElementById("jobList");
+
 const jobs = [
   {
     id: 1,
@@ -72,3 +74,8 @@ const jobs = [
     description: "Teach JavaScript basics and advanced concepts to beginner students."
   }
 ];
+
+const interviewJobs = [];
+const rejectedJobs = ['', '', ''];
+
+
