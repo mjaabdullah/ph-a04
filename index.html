@@ -16,5 +16,37 @@
     <!-- style -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body></body>
+  <body class="bg-gray-100">
+    <header
+      class="max-w-[1110px] mx-auto border-b-2 border-[#E6E7E9] p-4 sm:p-0"
+    >
+      <h1 class="text-4xl font-bold mt-8 text-[#002C5C]">
+        Job Application Tracker
+      </h1>
+      <!-- header Card Area -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-4">
+        <!-- total Card -->
+        <div class="bg-white p-5 rounded-md space-y-1">
+          <p class="text-gray-800">Total</p>
+          <span id="totalApplication" class="text-[#002C5C] font-bold text-xl"
+            >0</span
+          >
+        </div>
+        <!-- interview Card -->
+        <div class="bg-white p-5 rounded-md space-y-1">
+          <p class="text-gray-800">Interview</p>
+          <span id="totalInterview" class="text-green-600 font-bold text-xl"
+            >0</span
+          >
+        </div>
+        <!-- rejected Card -->
+        <div class="bg-white p-5 rounded-md space-y-1">
+          <p class="text-gray-800">Rejected</p>
+          <span id="totalRejected" class="text-red-600 font-bold text-xl"
+            >0</span
+          >
+        </div>
+      </div>
+    </header>
+  </body>
 </html>
