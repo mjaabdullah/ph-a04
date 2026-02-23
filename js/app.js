@@ -2,7 +2,7 @@
 const allBtn = document.getElementById("allBtn");
 const interviewBtn = document.getElementById("interviewBtn");
 const rejectedBtn = document.getElementById("rejectedBtn");
-const cardsContainer = document.getElementById("jobList");
+
 
 function activeBtn(btn) {
   allBtn.classList.remove("bg-[#3B82F6]", "text-white");
@@ -16,22 +16,22 @@ function activeBtn(btn) {
 
     btn.classList.remove("bg-white", "text-gray-600");
     btn.classList.add("bg-[#3B82F6]", "text-white");
-    console.log(btn.id);
+    
     if(btn.id === "allBtn") {
-        document.getElementById("totalAvailable").innerText =  totalJobPrint();
-        cardsContainer.innerHTML = "";
-        cardsContainer.appendChild(jobCardTemplate(jobs));
+
+        jobsDisplay(btn.id,jobs);
+
     }
     if(btn.id === "interviewBtn") {
-        document.getElementById("totalAvailable").innerText =  interviewJobs.length + ' of ' + totalJobPrint();
-        cardsContainer.innerHTML = "";
-        cardsContainer.appendChild(jobCardTemplate(interviewJobs));
+
+        jobsDisplay(btn.id, interviewJobs);
+
+
     }
     if(btn.id === "rejectedBtn") {
         
-        document.getElementById("totalAvailable").innerText =  rejectedJobs.length + ' of ' + totalJobPrint();
-        cardsContainer.innerHTML = "";
-        cardsContainer.appendChild(jobCardTemplate(rejectedJobs));
+        jobsDisplay(btn.id,rejectedJobs);
+
     }
 }
 
@@ -53,8 +53,13 @@ jobListParent.addEventListener("click", (event) => {
 
         jobStatus.textContent = "Interview";
         jobStatus.classList.add("ring-[#10B981]", "text-[#10B981]", "ring-[#10B981]", "ring-2", "bg-white");
+        
+        jobStatusChange(event, "Interview", interviewJobs);
+        
     }
     if(event.target.classList.contains("rejected-btn")) {
+        jobStatusChange(event, "Rejected", rejectedJobs);
+
         event.target.classList.remove("ring-[#EF4444]", "text-[#EF4444]", "cursor-pointer");
 
         event.target.parentNode.querySelector(".interview-btn").classList.remove("ring-[#002C5C]", "text-[#002C5C]");
@@ -72,13 +77,28 @@ jobListParent.addEventListener("click", (event) => {
         jobStatus.classList.add("ring-[#EF4444]", "text-[#EF4444]", "ring-[#EF4444]", "ring-2", "bg-white");
         
     }
-    
+    if(event.target.closest(".delete-btn")) {
+        
+        const jobId = event.target.closest("[id]").id;
+
+        if(allBtn.classList.contains("bg-[#3B82F6]")) {
+            jobDelete(jobId, jobs);
+            jobsDisplay(allBtn.id,jobs);
+        }
+        if(interviewBtn.classList.contains("bg-[#3B82F6]")) {
+            jobDelete(jobId, interviewJobs);
+            jobDelete(jobId, jobs);
+            jobsDisplay(interviewBtn.id,interviewJobs);
+        }
+        if(rejectedBtn.classList.contains("bg-[#3B82F6]")) {
+            jobDelete(jobId, rejectedJobs);
+            jobDelete(jobId, jobs);
+            jobsDisplay(rejectedBtn.id,rejectedJobs);
+        }
+
+    }
+    statusChangedJobDisplay(allBtn, interviewBtn, rejectedBtn)
 });
 
 jobListParent.appendChild(jobCardTemplate(jobs));
-document.getElementById("totalApplication").innerText = totalJobPrint();
-document.getElementById("totalAvailable").innerText = totalJobPrint();
-
-
-jobsPrint("totalInterview", interviewJobs);
-jobsPrint("totalRejected", rejectedJobs);
+calculateJobs();

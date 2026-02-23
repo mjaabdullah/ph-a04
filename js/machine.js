@@ -1,10 +1,11 @@
+const cardsContainer = document.getElementById("jobList");
 
-function jobsPrint(id, value) {
-    document.getElementById(id).innerText = value.length;
+function calculateJobs() {
+    document.getElementById("totalApplication").innerText = jobs.length;
+    document.getElementById("totalInterview").innerText = interviewJobs.length;
+    document.getElementById("totalRejected").innerText = rejectedJobs.length;
 }
-function totalJobPrint() {
-    return jobs.length + interviewJobs.length + rejectedJobs.length;
-}
+
 
 function jobCardTemplate(job) {
     const cardParent = document.createElement("div");
@@ -44,7 +45,7 @@ function jobCardTemplate(job) {
             <div>
               <span
                 class="jobStatus bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-md"
-                >Not Applied</span
+                >${e.jobStatus}</span
               >
             </div>
             <p class="text-gray-800">
@@ -81,3 +82,81 @@ function jobCardTemplate(job) {
 
 }
 
+function jobsDisplay(btn,arr) {
+
+  let totalJobs;
+
+  if(btn === "allBtn") {
+    totalJobs = jobs.length;
+  } else {
+    totalJobs = arr.length + ' of ' + jobs.length;
+  }
+  
+  document.getElementById("totalAvailable").innerText =  totalJobs;
+  cardsContainer.innerHTML = "";
+  cardsContainer.appendChild(jobCardTemplate(arr));
+}
+
+function jobDelete(jobId, arr) {
+  const jobIndex = arr.findIndex(e => e.id === parseInt(jobId));
+  if(jobIndex > -1) {
+    arr.splice(jobIndex, 1);
+    calculateJobs();
+  }
+}
+
+function jobStatusChange(event, status, arr) {
+    const jobId = event.target.parentNode.parentNode.parentNode.id;
+    const job = jobs.find(e => e.id === parseInt(jobId));
+    if(!(job.jobStatus) || job.jobStatus === status || arr.includes(job)) {
+        return;
+    }
+
+    if(job.jobStatus === "Interview") {
+        const index = interviewJobs.findIndex(e => e.id === parseInt(jobId));
+        if(index > -1) {
+            if(status === "Rejected") {
+                interviewJobs.splice(index, 1);
+                job.jobStatus = status;
+                arr.push(job);
+                calculateJobs();
+                return;
+            }
+        }
+    }
+
+    if(job.jobStatus === "Rejected") {
+        const index = rejectedJobs.findIndex(e => e.id === parseInt(jobId));
+        if(index > -1) {
+            if(status === "Interview") {
+                rejectedJobs.splice(index, 1);
+                job.jobStatus = status;
+                arr.push(job);
+                calculateJobs();
+                return;
+            } 
+        }
+    }
+    
+
+
+
+    job.jobStatus = status;
+
+    arr.push(job);
+    calculateJobs();
+
+}
+
+function statusChangedJobDisplay(allBtn, interviewBtn, rejectedBtn) {
+
+        if(allBtn.classList.contains("bg-[#3B82F6]")) {
+            jobsDisplay(allBtn.id,jobs);
+        }
+        if(interviewBtn.classList.contains("bg-[#3B82F6]")) {
+            jobsDisplay(interviewBtn.id,interviewJobs);
+        }
+        if(rejectedBtn.classList.contains("bg-[#3B82F6]")) {
+            jobsDisplay(rejectedBtn.id,rejectedJobs);
+        }
+}

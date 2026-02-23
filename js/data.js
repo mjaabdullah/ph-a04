@@ -8,6 +8,7 @@ const jobs = [
     location: "Dhaka, Bangladesh",
     type: "Full-Time",
     salary: "৳40,000 - ৳60,000",
+    jobStatus: "Not Applied",
     description: "Looking for a skilled Frontend Developer with experience in React and Tailwind CSS."
   },
   {
@@ -17,6 +18,7 @@ const jobs = [
     location: "Remote",
     type: "Full-Time",
     salary: "৳50,000 - ৳80,000",
+    jobStatus: "Not Applied",
     description: "Seeking a Node.js developer with experience in REST APIs and MongoDB."
   },
   {
@@ -26,6 +28,7 @@ const jobs = [
     location: "Chattogram, Bangladesh",
     type: "Part-Time",
     salary: "৳25,000 - ৳35,000",
+    jobStatus: "Not Applied",
     description: "Design modern and user-friendly interfaces for web and mobile applications."
   },
   {
@@ -35,6 +38,7 @@ const jobs = [
     location: "Dhaka, Bangladesh",
     type: "Full-Time",
     salary: "৳60,000 - ৳90,000",
+    jobStatus: "Not Applied",
     description: "Monitor security threats and implement security policies to protect systems."
   },
   {
@@ -44,6 +48,7 @@ const jobs = [
     location: "Remote",
     type: "Contract",
     salary: "৳45,000 - ৳70,000",
+    jobStatus: "Not Applied",
     description: "Analyze business data and generate reports using Python and SQL."
   },
   {
@@ -53,6 +58,7 @@ const jobs = [
     location: "Sylhet, Bangladesh",
     type: "Full-Time",
     salary: "৳50,000 - ৳75,000",
+    jobStatus: "Not Applied",
     description: "Develop Android applications using Kotlin and modern architecture."
   },
   {
@@ -62,6 +68,7 @@ const jobs = [
     location: "Dhaka, Bangladesh",
     type: "Full-Time",
     salary: "৳70,000 - ৳1,00,000",
+    jobStatus: "Not Applied",
     description: "Manage CI/CD pipelines and cloud infrastructure using AWS and Docker."
   },
   {
@@ -71,11 +78,12 @@ const jobs = [
     location: "Remote",
     type: "Part-Time",
     salary: "৳20,000 - ৳30,000",
+    jobStatus: "Not Applied",
     description: "Teach JavaScript basics and advanced concepts to beginner students."
   }
 ];
 
 const interviewJobs = [];
-const rejectedJobs = ['', '', ''];
+const rejectedJobs = [];
 
 
