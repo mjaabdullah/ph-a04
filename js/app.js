@@ -1,8 +1,4 @@
-
-const allBtn = document.getElementById("allBtn");
-const interviewBtn = document.getElementById("interviewBtn");
-const rejectedBtn = document.getElementById("rejectedBtn");
-
+ 
 
 function activeBtn(btn) {
   allBtn.classList.remove("bg-[#3B82F6]", "text-white");
@@ -41,46 +37,12 @@ jobListParent.addEventListener("click", (event) => {
     if(event.target.classList.contains("interview-btn")) {
         
         jobStatusChange(event, "Interview", interviewJobs);
-
-        if(allBtn.classList.contains("bg-[#3B82F6]")) {
-            jobsDisplay(allBtn.id,jobs);
-        }
-        if(interviewBtn.classList.contains("bg-[#3B82F6]")) {
-            jobsDisplay(interviewBtn.id,interviewJobs);
-        }
-        if(rejectedBtn.classList.contains("bg-[#3B82F6]")) {
-            jobsDisplay(rejectedBtn.id,rejectedJobs);
-        }
+        updateJobStatus();
         
     }
     if(event.target.classList.contains("rejected-btn")) {
         jobStatusChange(event, "Rejected", rejectedJobs);
-
-        if(allBtn.classList.contains("bg-[#3B82F6]")) {
-            jobsDisplay(allBtn.id,jobs);
-        }
-        if(interviewBtn.classList.contains("bg-[#3B82F6]")) {
-            jobsDisplay(interviewBtn.id,interviewJobs);
-        }
-        if(rejectedBtn.classList.contains("bg-[#3B82F6]")) {
-            jobsDisplay(rejectedBtn.id,rejectedJobs);
-        }
-
-        // event.target.classList.remove("ring-[#EF4444]", "text-[#EF4444]", "cursor-pointer");
-
-        // event.target.parentNode.querySelector(".interview-btn").classList.remove("ring-[#002C5C]", "text-[#002C5C]");
-        // event.target.parentNode.querySelector(".interview-btn").classList.add("ring-[#10B981]", "text-[#10B981]");
-
-        // event.target.classList.add("ring-[#002C5C]", "text-[#002C5C]");
-
-
-
-        // const jobStatus = event.target.parentNode.parentNode.querySelector(".jobStatus");
-
-        // jobStatus.classList.remove("bg-[#EEF4FF]", "text-[#002C5C]", "ring-[#10B981]", "text-[#10B981]", "ring-[#10B981]", "ring-2", "bg-white");
-
-        // jobStatus.textContent = "Rejected";
-        // jobStatus.classList.add("ring-[#EF4444]", "text-[#EF4444]", "ring-[#EF4444]", "ring-2", "bg-white");
+        updateJobStatus();
         
     }
     if(event.target.closest(".delete-btn")) {

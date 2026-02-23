@@ -1,3 +1,7 @@
+const allBtn = document.getElementById("allBtn");
+const interviewBtn = document.getElementById("interviewBtn");
+const rejectedBtn = document.getElementById("rejectedBtn");
+
 const cardsContainer = document.getElementById("jobList");
 
 function calculateJobs() {
@@ -160,7 +164,7 @@ function jobStatusChange(event, status, arr) {
 
     arr.push(job);
     calculateJobs();
-    console.log(job.jobStatus);
+    // console.log(job.jobStatus);
 
 }
 
@@ -175,4 +179,18 @@ function statusChangedJobDisplay(allBtn, interviewBtn, rejectedBtn) {
         if(rejectedBtn.classList.contains("bg-[#3B82F6]")) {
             jobsDisplay(rejectedBtn.id,rejectedJobs);
         }
+}
+
+function updateJobStatus() {
+
+  if(allBtn.classList.contains("bg-[#3B82F6]")) {
+            jobsDisplay(allBtn.id,jobs);
+        }
+        if(interviewBtn.classList.contains("bg-[#3B82F6]")) {
+            jobsDisplay(interviewBtn.id,interviewJobs);
+        }
+        if(rejectedBtn.classList.contains("bg-[#3B82F6]")) {
+            jobsDisplay(rejectedBtn.id,rejectedJobs);
+        }
+  
 }
