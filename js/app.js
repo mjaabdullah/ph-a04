@@ -1,4 +1,4 @@
- 
+// 
 
 function activeBtn(btn) {
   allBtn.classList.remove("bg-[#3B82F6]", "text-white");
@@ -14,37 +14,33 @@ function activeBtn(btn) {
     btn.classList.add("bg-[#3B82F6]", "text-white");
     
     if(btn.id === "allBtn") {
-
         jobsDisplay(btn.id,jobs);
-
     }
     if(btn.id === "interviewBtn") {
-
         jobsDisplay(btn.id, interviewJobs);
-
-
     }
     if(btn.id === "rejectedBtn") {
-        
         jobsDisplay(btn.id,rejectedJobs);
-
     }
 }
 
 
 
 jobListParent.addEventListener("click", (event) => {
+    // when click on interview button, change the job status to interview and add the job to interview array
     if(event.target.classList.contains("interview-btn")) {
         
         jobStatusChange(event, "Interview", interviewJobs);
         updateJobStatus();
         
     }
+    // when click on rejected button, change the job status to rejected and add the job to rejected array
     if(event.target.classList.contains("rejected-btn")) {
         jobStatusChange(event, "Rejected", rejectedJobs);
         updateJobStatus();
         
     }
+    // when click on delete button, delete the job from all arrays and update the display
     if(event.target.closest(".delete-btn")) {
         
         const jobId = event.target.closest("[id]").id;

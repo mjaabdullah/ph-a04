@@ -1,5 +1,6 @@
 const jobListParent = document.getElementById("jobList");
 
+// all jobs are stored in this array
 const jobs = [
   {
     id: 1,
@@ -83,6 +84,7 @@ const jobs = [
   }
 ];
 
+// interview and rejected jobs are stored in these arrays
 const interviewJobs = [];
 const rejectedJobs = [];
 
