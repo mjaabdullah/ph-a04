@@ -26,6 +26,20 @@ function jobCardTemplate(job) {
     
     cardParent.classList.add("space-y-4");
     job.forEach(e => {
+      let interviewBtnClass= "cursor-pointer ring-[#10B981] ring-2 text-[#10B981]";
+      let rejectedBtnClass = "cursor-pointer ring-[#EF4444] ring-2 text-[#EF4444]";
+      let jobStatusClass = "bg-[#EEF4FF] text-[#002C5C]";
+
+      if(e.jobStatus === "Interview") {
+         jobStatusClass = "ring-[#10B981] ring-2 text-[#10B981]";
+         interviewBtnClass = "bg-[#EEF4FF] text-[#002C5C]";
+         rejectedBtnClass = "cursor-pointer ring-[#EF4444] ring-2 text-[#EF4444]";
+      } 
+      if(e.jobStatus === "Rejected") {
+         jobStatusClass = "ring-[#EF4444] ring-2 text-[#EF4444]";
+         interviewBtnClass = "cursor-pointer ring-[#10B981] ring-2 text-[#10B981]";
+          rejectedBtnClass = "bg-[#EEF4FF] text-[#002C5C]";
+      }
   
   cardParent.innerHTML += `
   
@@ -44,7 +58,7 @@ function jobCardTemplate(job) {
             </div>
             <div>
               <span
-                class="jobStatus bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-md"
+                class="jobStatus px-3 py-2 rounded-md ${jobStatusClass}"
                 >${e.jobStatus}</span
               >
             </div>
@@ -54,15 +68,16 @@ function jobCardTemplate(job) {
 
             <div class="space-x-2">
               <button
-                class="interview-btn px-3 py-2 rounded-md cursor-pointer ring-[#10B981] ring-2 text-[#10B981]"
+                class="interview-btn px-3 py-2 rounded-md ${interviewBtnClass} "
               >
                 Interview
               </button>
               <button
-                class="rejected-btn px-3 py-2 rounded-md cursor-pointer ring-[#EF4444] ring-2 text-[#EF4444]"
+                class="rejected-btn px-3 py-2 rounded-md ${rejectedBtnClass}"
               >
                 Rejected
               </button>
+
             </div>
           </div>
           <!-- card right -->
@@ -145,6 +160,7 @@ function jobStatusChange(event, status, arr) {
 
     arr.push(job);
     calculateJobs();
+    console.log(job.jobStatus);
 
 }
 
