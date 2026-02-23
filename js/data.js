@@ -81,6 +81,86 @@ const jobs = [
     salary: "৳20,000 - ৳30,000",
     jobStatus: "Not Applied",
     description: "Teach JavaScript basics and advanced concepts to beginner students."
+  },
+  {
+    id: 9,
+    companyName: "Bright Future Tech",
+    position: "Full Stack Developer",
+    location: "Dhaka, Bangladesh",
+    type: "Full-Time",
+    salary: "৳60,000 - ৳90,000",
+    jobStatus: "Not Applied",
+    description: "Looking for a Full Stack Developer experienced in React, Node.js and MongoDB."
+  },
+  {
+    id: 10,
+    companyName: "Digital Wave Agency",
+    position: "SEO Specialist",
+    location: "Remote",
+    type: "Contract",
+    salary: "৳30,000 - ৳50,000",
+    jobStatus: "Not Applied",
+    description: "Manage on-page and off-page SEO strategies to improve search rankings."
+  },
+  {
+    id: 11,
+    companyName: "SecureNet Systems",
+    position: "Network Engineer",
+    location: "Khulna, Bangladesh",
+    type: "Full-Time",
+    salary: "৳45,000 - ৳70,000",
+    jobStatus: "Not Applied",
+    description: "Maintain and troubleshoot enterprise-level network infrastructure."
+  },
+  {
+    id: 12,
+    companyName: "CodeCrafters Ltd.",
+    position: "Junior React Developer",
+    location: "Remote",
+    type: "Internship",
+    salary: "৳15,000 - ৳25,000",
+    jobStatus: "Not Applied",
+    description: "Assist in building modern web applications using React and REST APIs."
+  },
+  {
+    id: 13,
+    companyName: "DataBridge Solutions",
+    position: "Business Intelligence Analyst",
+    location: "Dhaka, Bangladesh",
+    type: "Full-Time",
+    salary: "৳55,000 - ৳85,000",
+    jobStatus: "Not Applied",
+    description: "Work with data visualization tools like Power BI and Tableau."
+  },
+  {
+    id: 14,
+    companyName: "SkyHigh Innovations",
+    position: "Cloud Engineer",
+    location: "Remote",
+    type: "Full-Time",
+    salary: "৳70,000 - ৳1,10,000",
+    jobStatus: "Not Applied",
+    description: "Deploy and manage cloud infrastructure using AWS and Docker."
+  },
+  {
+    id: 15,
+    companyName: "NextStep IT",
+    position: "Technical Support Engineer",
+    location: "Rajshahi, Bangladesh",
+    type: "Full-Time",
+    salary: "৳25,000 - ৳40,000",
+    jobStatus: "Not Applied",
+    description: "Provide technical support and troubleshoot client-side software issues."
+  },
+  {
+    id: 16,
+    companyName: "InnoSoft Global",
+    position: "Python Developer",
+    location: "Remote",
+    type: "Part-Time",
+    salary: "৳35,000 - ৳60,000",
+    jobStatus: "Not Applied",
+    description: "Develop backend systems and automation scripts using Python."
   }
 ];
 
