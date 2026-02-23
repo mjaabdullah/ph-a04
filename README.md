@@ -1,7 +1,7 @@
 ### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 
 - getElementById দ্বারা নির্দিষ্ট কোন আইডিকে ধরা যায়।
-- getElementsByClassName দ্বারা ডকুমেন্ট এ থাকা সকল Class কে ধরা যায়।
+- getElementsByClassName দ্বারা ডকুমেন্ট এ থাকা নির্দিষ্ট নামের সকল Class কে ধরা যায়।
 - querySelector দ্বারা আইডি, ক্লাস এবং ট্যাগ সব কিছুই ধরা যায়। তবে এটি শুধুমাত্র প্রথম ইলিমেন্টটা দেয়।
 - querySelectorAll দ্বরা ডকুমেন্টে থাকা সকল Class & HTML Tag কে ধরা যায়।
 
@@ -15,7 +15,7 @@
 
 ### 4. What is Event Delegation in JavaScript? Why is it useful?
 
-- Event Delegation: হলো Event Bubbling এর উল্টা অর্থাৎ এটি প্যারেন্ট ইলিমেন্ট থেকে চাইল্ড এর দিকে যায়। অর্থাৎ কোন ইভেন্ট যদি প্যারেন্ট এ হয় এটি ধাপে ধাপে তার চাইল্ড পর্যন্ত পৌছায়। Event Delegation এর ব্যবহারে কোড কম লাগে।
+- Event Delegation: Event Bubbling এর উপর ভিত্তি করে কাজ করে। অর্থাৎ কোন ইভেন্ট একাধিক ইলিমেন্ট এ না বসিয়ে শুধুমাত্র তাদের প্যারেন্ট বসিয়ে কাজ করা হয়। এবং ইভেন্টটি ধাপে ধাপে তার প্যারেন্ট পর্যন্ত পৌছায়। Event Delegation এর ব্যবহারে কোড কম লাগে।
 
 ### 5. What is the difference between preventDefault() and stopPropagation() methods?
 
